@@ -7,7 +7,7 @@ import { ExperienceBar } from "../components/ExperienceBar";
 import { Profile } from "../components/Profile";
 import { ChallengeBox } from "../components/ChallengeBox";
 
-import styles from "../styles/pages/Home.module.css"
+import styles from "../styles/pages/Home.module.scss"
 import { CountdownProvider } from "../contexts/CountdownContext";
 import { ChallengesProvider } from "../contexts/ChallengesContext";
 
@@ -26,7 +26,7 @@ export default function Home(props: HomeProps) {
     >
       <div className={styles.container}>
         <Head>
-          <title>Início | MoveIt</title>
+          <title>Início | Pomodoro 2.0</title>
         </Head>
 
         <ExperienceBar />
