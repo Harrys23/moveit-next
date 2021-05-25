@@ -9,11 +9,13 @@
 
   font-weight: 500;
 
-  span:first-child {
-    font-size: 1.25rem;
-  }
+  span {
+    &:first-child {
+      font-size: 1.25rem;
+    }
 
-  span:last-child {
-    font-size: 1.5rem;
+    &:last-child {
+      font-size: 1.5rem;
+    }
   }
 }

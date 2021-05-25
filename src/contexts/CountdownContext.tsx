@@ -1,18 +1,23 @@
-import { createContext, ReactNode, useContext, useEffect, useState } from "react";
+import {
+  createContext,
+  ReactNode,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 import { challengesContext } from "./ChallengesContext";
 
 interface CountdounContextData {
-  minutes: number,
-  seconds: number,
-  hasFinished: boolean,
-  isActive: boolean,
-  startCountdown: () => void,
-  resetCountdown: () => void,
+  minutes: number;
+  seconds: number;
+  hasFinished: boolean;
+  isActive: boolean;
+  startCountdown: () => void;
+  resetCountdown: () => void;
 }
 
 interface CountdownProviderProps {
   children: ReactNode;
-
 }
 
 export const CountdownContext = createContext({} as CountdounContextData);
@@ -22,7 +27,7 @@ let countdownTimeout: NodeJS.Timeout;
 export function CountdownProvider({ children }: CountdownProviderProps) {
   const { startNewChallenge } = useContext(challengesContext);
 
-  const [time, setTime] = useState(0.05 * 60);
+  const [time, setTime] = useState(25 * 60);
   const [isActive, setIsActive] = useState(false);
   const [hasFinished, setHasFinished] = useState(false);
 
@@ -37,32 +42,33 @@ export function CountdownProvider({ children }: CountdownProviderProps) {
     clearTimeout(countdownTimeout);
     setIsActive(false);
     setHasFinished(false);
-    setTime(0.05 * 60);
+    setTime(25 * 60);
   }
 
   useEffect(() => {
     if (isActive && time > 0) {
       countdownTimeout = setTimeout(() => {
         setTime(time - 1);
-      }, 1000)
+      }, 1000);
     } else if (isActive && time === 0) {
       setHasFinished(true);
       setIsActive(false);
       startNewChallenge();
     }
-  }, [isActive, time])
-
+  }, [isActive, time]);
 
   return (
-    <CountdownContext.Provider value={{
-      minutes,
-      seconds,
-      hasFinished,
-      isActive,
-      startCountdown,
-      resetCountdown,
-    }}>
+    <CountdownContext.Provider
+      value={{
+        minutes,
+        seconds,
+        hasFinished,
+        isActive,
+        startCountdown,
+        resetCountdown,
+      }}
+    >
       {children}
     </CountdownContext.Provider>
-  )
+  );
 }

@@ -2,6 +2,10 @@
   display: flex;
   align-items: center;
 
+  background: var(--white);
+  padding: 0px 10px;
+  border-radius: 5px;
+
   span {
     font-size: 1rem;
   }
@@ -24,6 +28,23 @@
       position: absolute;
       top: 12px;
       transform: translateX(-50%);
+      background: var(--text-highlight);
+      padding: 3px;
+      border-radius: 15%;
+
+      &::after {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 0;
+        z-index: 1;
+        border-style: solid;
+        border-color: var(--text-highlight) transparent;
+        border-width: 0 6px 6px;
+        top: -20%;
+        left: 50%;
+        margin-left: -20%;
+      }
     }
   }
 }

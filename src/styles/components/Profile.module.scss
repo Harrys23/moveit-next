@@ -1,11 +1,17 @@
 .profileContainer {
   display: flex;
   align-items: center;
+  padding: 0.3rem;
+
+  background: var(--white);
 
   > img {
     width: 5.5rem;
     height: 5.5rem;
     border-radius: 50%;
+
+    border: 3px solid;
+    border-color: var(--blue-dark);
   }
 
   div {
