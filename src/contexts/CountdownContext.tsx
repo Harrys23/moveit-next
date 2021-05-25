@@ -7,7 +7,7 @@ import {
 } from "react";
 import { challengesContext } from "./ChallengesContext";
 
-interface CountdounContextData {
+interface CountdownContextData {
   minutes: number;
   seconds: number;
   hasFinished: boolean;
@@ -20,7 +20,7 @@ interface CountdownProviderProps {
   children: ReactNode;
 }
 
-export const CountdownContext = createContext({} as CountdounContextData);
+export const CountdownContext = createContext({} as CountdownContextData);
 
 let countdownTimeout: NodeJS.Timeout;
 
